@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Screen Background</title>
+    <style>
+        body {
+            /* Specify the path to your image inside url() */
+            background-image: url('ABA\ Backround.jpeg'); 
+            
+            /* Prevents the image from repeating like a grid */
+            background-repeat: no-repeat; 
+            
+            /* Centers the image on the screen */
+            background-position: center; 
+            
+            /* Forces the image to scale and cover the entire background area */
+            background-size: cover; 
+            
+            /* Keeps the background fixed in place while scrolling */
+            background-attachment: fixed; 
+            
+            /* Ensures the body takes up the full height of the screen */
+            min-height: 100vh; 
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Obsession Page</h1>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABA Obsession | Anime Battle Arena Hub</title>
+  <style>
+    /* --- CSS RESET & BASE STYLES --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    :root {
+      --bg-dark: #0a0b10;
+      --card-bg: rgba(18, 22, 34, 0.85);
+      --primary-neon: #ff2a5f;
+      --secondary-neon: #00f0ff;
+      --accent-gold: #ffd700;
+      --text-main: #f0f3f8;
+      --text-muted: #a0a7b5;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Background ABA Artwork Image */
+      background-image: linear-gradient(rgba(10, 11, 16, 0.9), rgba(10, 11, 16, 0.9)), 
+                        url('ABA\ Backround.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* --- TYPOGRAPHY & UTILITIES --- */
+    h1, h2, h3 {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .neon-text-red {
+      color: var(--primary-neon);
+      text-shadow: 0 0 10px rgba(255, 42, 95, 0.5);
+    }
+
+    .neon-text-blue {
+      color: var(--secondary-neon);
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    .gold-text {
+      color: var(--accent-gold);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    /* --- HERO SECTION --- */
+    header {
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      background: linear-gradient(180deg, rgba(10, 11, 16, 0.4) 0%, rgba(10, 11, 16, 1) 100%),
+                  url('http://googleusercontent.com/image_collection/image_retrieval/10862548158773290110_0') center/cover no-repeat;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      line-height: 1.1;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      max-width: 650px;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    .badge {
+      background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon));
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    }
+
+    /* --- CONTAINER & TITLES --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-neon);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- GRID & CARDS WITH IMAGES --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .card ul {
+      list-style-position: inside;
+      color: var(--text-muted);
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+    }
+
+    /* --- PRESTIGE FEATURE CONTAINER --- */
+    .prestige-box {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0,0,0,0.7));
+      border: 1px solid var(--accent-gold);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .prestige-details {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .prestige-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 250px;
+    }
+
+    /* --- ADDICTION SECTION --- */
+    .addiction-section {
+      background: rgba(255, 42, 95, 0.05);
+      border-left: 4px solid var(--primary-neon);
+      padding: 30px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 60px;
+    }
+
+    .addiction-section p {
+      margin-bottom: 15px;
+      color: var(--text-muted);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.9rem;
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .prestige-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <span class="badge">ROBLOX EXPERIENCE</span>
+    <h1>ANIME BATTLE ARENA <br><span class="neon-text-red">OBSESSION</span></h1>
+    <p>The ultimate dive into mechanics, prestige grinding, skin collecting, and why you should play the premier anime fighter on Roblox.</p>
+  </header>
+
+  <div class="container">
+
+    <!-- GAME MECHANICS -->
+    <h2 class="section-title">Core <span class="neon-text-blue">Mechanics</span></h2>
+    <div class="grid">
+      
+      <div class="card">
+        <img src="ABA Combat.jpg" class="card-img" alt="ABA Combat Gameplay">
+        <div class="card-content">
+          <h3 class="neon-text-blue">Combat System</h3>
+          <ul>
+            <li><strong>M1 String:</strong> 4-hit basic attack combos that scale damage and setup skills.</li>
+            <li><strong>Block & Guard Break:</strong> Standard blocking negates normal M1s, but specific heavy moves break guards.</li>
+            <li><strong>Evasive/Down Tech:</strong> Timed escapes allow players to break out of devastating combos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="ABA Mode t.jpg" class="card-img" alt="ABA Awakening Mode">
+        <div class="card-content">
+          <h3 class="neon-text-blue">Awakening (Mode)</h3>
+          <ul>
+            <li>Filling the Awakening Meter unlocks a character's "Awakening" state (e.g., Super Saiyan, Hollowification).</li>
+            <li>Grants 4 brand-new, extremely powerful moves.</li>
+            <li>Can completely turn the tide of a losing match if timed correctly.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="ABA Roster.jpeg" class="card-img" alt="ABA Character Roster">
+        <div class="card-content">
+          <h3 class="neon-text-blue">Roster Diversity</h3>
+          <ul>
+            <li>Features characters across dozens of anime (Dragon Ball, Naruto, Bleach, One Piece, Jojo, Fate, etc.).</li>
+            <li>Split into DLCs, Roster characters, and Unlockables via Gold.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRESTIGE SYSTEM -->
+    <h2 class="section-title">The <span class="gold-text">Prestige</span> Grind</h2>
+    <div class="prestige-box">
+      <div class="prestige-details">
+        <h3 class="gold-text" style="font-size: 1.6rem; margin-bottom: 15px;">What is Prestige?</h3>
+        <p style="margin-bottom: 15px;">Once a player reaches <strong>Account Level 100</strong>, they gain the ability to Prestige. Resetting your level back to 1 gives high-status rewards and proves ultimate dedication to the game.</p>
+        <ul>
+          <li><strong>Requirements:</strong> Reach Level 100 via grinding Ranked or Public matches.</li>
+          <li><strong>Rewards:</strong> Exclusive Prestige skins, unique gold titles, prestige icons, and flex status in lobbies.</li>
+          <li><strong>Multi-Prestige:</strong> Players can prestige multiple times to unlock rarer badges and show off their thousands of hours played.</li>
+        </ul>
+      </div>
+      <img src="PrestigeMenu.webp" class="prestige-img" alt="ABA Prestige & Roster Screen">
+    </div>
+
+    <!-- SKINS & COSMETICS -->
+    <h2 class="section-title">Skins & <span class="neon-text-blue">Cosmetics</span></h2>
+    <div class="grid">
+      <div class="card">
+        <img src="T^3 legandary skin.jpeg" class="card-img" alt="ABA Skins">
+        <div class="card-content">
+          <h3>Skin Rarity Tiers</h3>
+          <p style="color: var(--text-muted); margin-bottom: 10px;">Skins alter character models, sound effects, and visual animations.</p>
+          <ul>
+            <li><strong>Common / Rare:</strong> Color palette swaps or minor design changes.</li>
+            <li><strong>Legendary:</strong> Complete model overhauls (e.g., genderbends, alternate universe versions).</li>
+            <li><strong>Prestige / Exclusive:</strong> Unlocked only via hard grinding or special events.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="kenpachi gold.jpeg" class="card-img" alt="ABA Gold Crates">
+        <div class="card-content">
+          <h3>Gold & Skin Crates</h3>
+          <p style="color: var(--text-muted); margin-bottom: 10px;">The primary gacha loop driving player economy.</p>
+          <ul>
+            <li>Earn <strong>Gold</strong> by winning matches and landing hits.</li>
+            <li>Spend Gold on opening Skin Crates to roll for high-tier skins.</li>
+            <li>Unlocking legendary skins provides immense cosmetic flex in public arenas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY IT IS ADDICTING -->
+    <h2 class="section-title">Why Is ABA So <span class="neon-text-red">Addicting?</span></h2>
+    <div class="addiction-section">
+      <h3>1. High Skill Ceiling & Combo Freedom</h3>
+      <p>Unlike casual button-mashers, ABA relies heavily on precision timing, jump-cancels, combo extensions, and baiting out enemy evasives. Mastering a complex character feels incredibly rewarding.</p>
+
+      <h3>2. The Ranked 1v1 Dopamine Loop</h3>
+      <p>Ranked play offers competitive matchmaking with MMR points. The constant thrill of climbing ranks, reading opponents, and landing clutch Awakenings keeps competitive players hooked.</p>
+
+      <h3>3. Fan-Service & Anime Accuracy</h3>
+      <p>Move-sets are crafted with extreme care and respect for source anime material. Executing iconic anime moments frame-for-frame against real players creates unparalleled satisfaction.</p>
+
+      <h3>4. Endless Progression</h3>
+      <p>Between unlocking every character, grinding skin crates, climbing ranked leaderboards, and striving for Prestige status, there is always another goal to chase.</p>
+    </div>
+
+  </div>
+<h1>Anime Battle Arena (ABA)</h1>
+    <h3> 
+  </body>
+</html>
+<details>
+  <summary>What is a Z tier?</summary>
+  <p>
+    A Z tier is a broken Character that ranks in a class of its own. Its
+    assoisiated with characters that are considered "Brain Dead," and require no
+    skill to master.-Erik
+  </p>
+</details>
+<details>
+  <summary>What are Gold Skins?</summary>
+  <p>
+    Players typically earn a gold skin by spending enough play time or grinding
+    matches with a specific character (often cited by the community as requiring
+    around 3 hours of active gameplay per character.) Because they require a
+    significant time investment and dedication to master or grind a single
+    character, gold skins act as a status symbol or badge of honor
+    in-game.Almost every character in the game's massive anime roster—spanning
+    series like One Piece, Naruto, Dragon Ball Z, and JoJo's Bizarre
+    Adventure—has a unique gold skin variant.
+  </p>
+</details>
+<details>
+  <summary>What is a Prestige?</summary>
+  <p>
+    How Prestiging Works 
+    <h5>Requirement: You must be at least level 100.
+    <h5>
+    Process: Talk to the NPC named Mr. Random at the back of the lobby. 
+    
+    <h5>Cost: Prestiging subtracts 99 levels from your current level, returning you
+    back toward level 1. 
+    <h5>The Reward: You are shown two random prestige
+    characters and must pick one to permanently unlock and play. Subsequent
+    prestiges also give experience multipliers to make leveling faster next
+    time.
+  </p>
+</details>
+  <!-- FOOTER -->
+  <footer>
+    <p>Anime Battle Arena (ABA) is created by Agematsu. Page designed for true ABA fans.</p>
+  </footer>
+
+
+
+
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Multiple Background Music</title>
+  </head>
+  <body>
+  
+      <!-- Audio element without 'controls' to keep it hidden -->
+      <audio id="bg-music" autoplay></audio>
+  
+      <script>
+          const playlist = [
+              "one_piece_overlord.mp3",
+              "one_piece.mp3",
+              "dbsui.mp3",
+              "jonathan.mp3"
+          ];
+  
+          let currentTrack = 0;
+          const audioPlayer = document.getElementById("bg-music");
+  
+          function playTrack(index) {
+              audioPlayer.src = playlist[index];
+              audioPlayer.play().catch(error => {
+                  console.log("Autoplay blocked by browser policy.");
+              });
+          }
+  
+          // Move to the next track when the current one ends
+          audioPlayer.addEventListener("ended", () => {
+              currentTrack = (currentTrack + 1) % playlist.length;
+              playTrack(currentTrack);
+          });
+  
+          // Initialize the first track on page load
+          window.addEventListener("DOMContentLoaded", () => {
+              playTrack(currentTrack);
+          }); 
+      </script>
+  
+  </body>
+  </html>
